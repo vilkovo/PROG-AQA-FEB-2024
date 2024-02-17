@@ -17,6 +17,12 @@ public class Ford implements ICar {
     }
 
     @Override
+    public void interiorCar() {
+        System.out.println("Ford has a gray interior");
+
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof Ford) {
             Ford otherCar = (Ford) obj;

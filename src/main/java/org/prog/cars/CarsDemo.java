@@ -25,28 +25,56 @@ public class CarsDemo {
      */
 
     public static void main(String[] args) {
-        int i = 10;
-        increaseI(i);
-        i=550;
-        System.out.println(i);
-        Ford redCar = new Ford();
-        Ford blueCar = new Ford();
-        Ford greenCar = new Ford();
 
-        Ford bobsCar = redCar;
-        Ford sarahsCar = blueCar;
-        Ford joesCar = greenCar;
+        Car car = new Car();
+        Truck truck = new Truck();
+        CargoTruck cargoTruck = new CargoTruck();
+        Lorry lorry = new Lorry();
+        Honda honda = new Honda();
+        Ford ford = new Ford();
+        Tesla tesla = new Tesla();
 
-        redCar.miles = 500;
-        blueCar.miles = 501;
-        greenCar.miles = 500;
+        honda.goTo();
+        honda.fillCar();
+        honda.interiorCar();
+        ford.goTo();
+        ford.fillCar();
+        ford.interiorCar();
+        tesla.goTo();
+        tesla.fillCar();
+        tesla.interiorCar();
 
-        redCar.color = "red";
-        blueCar.color = "red";
-        greenCar.color = "green";
+        car.turnRight();
+        car.turnLeft();
+        truck.turnRight();
+        truck.turnLeft();
+        cargoTruck.turnRight();
+        cargoTruck.turnLeft();
+        lorry.turnRight();
+        lorry.turnLeft();
 
-        System.out.println(redCar.equals(blueCar));
-        System.out.println(redCar.equals(greenCar));
+//        int i = 10;
+//        increaseI(i);
+//        i=550;
+//        System.out.println(i);
+//        Ford redCar = new Ford();
+//        Ford blueCar = new Ford();
+//        Ford greenCar = new Ford();
+//
+//        Ford bobsCar = redCar;
+//        Ford sarahsCar = blueCar;
+//        Ford joesCar = greenCar;
+//
+//        redCar.miles = 500;
+//        blueCar.miles = 501;
+//        greenCar.miles = 500;
+//
+//        redCar.color = "red";
+//        blueCar.color = "red";
+//        greenCar.color = "green";
+//
+//        System.out.println(redCar.equals(blueCar));
+//        System.out.println(redCar.equals(greenCar));
 //
 //        System.out.println(bobsCar.color);
 //        System.out.println(bobsCar.miles);
@@ -69,14 +97,14 @@ public class CarsDemo {
 //
 //        System.out.println(joesCar.color);
 //        System.out.println(joesCar.miles);
-    }
-
-    public static void paintCar(Ford car, String color) {
-        car.miles += 50;
-        car.color = color;
-    }
-
-    public static void increaseI(int i) {
-        i = 500;
+//    }
+//
+//    public static void paintCar(Ford car, String color) {
+//        car.miles += 50;
+//        car.color = color;
+//    }
+//
+//    public static void increaseI(int i) {
+//        i = 500;
     }
 }
