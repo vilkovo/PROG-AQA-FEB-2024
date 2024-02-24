@@ -5,39 +5,40 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 
-//TODO: Catch parent exceptions (EXception / Throwable)
+//TODO: Catch parent exceptions (Exception / Throwable)
 //TODO: Catch specific exception
 //TODO: Convert FileNotFoundException into Throwable in readFile3
 //TODO: Process Throwable in readFile1
 public class ExceptionsDemo {
 
     public static void main(String[] args) {
-        try {
             readFile1();
-        } catch (Throwable t) {
-            System.out.println("OOPS");
-        }
-        System.out.println("test");
+            System.out.println("Тест пройден.");
     }
 
     public static void readFile1() {
-        readFile2();
-    }
-
-    public static void readFile2() {
-        readFile3();
-    }
-
-    public static void readFile3() {
-        readFile4();
-    }
-
-    public static void readFile4() {
         try {
-            readFile5();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            readFile2();
+        } catch (Throwable throwable){
+            System.out.println("Указать правильный путь к файлу.");
         }
+    }
+
+    public static void readFile2() throws Throwable {
+            readFile3();
+    }
+
+    public static void readFile3() throws Throwable {
+        try {
+            readFile4();
+        } catch (FileNotFoundException fileNotFoundException){
+            System.out.println("Файл не найден.");
+            throw new Throwable();
+        }
+    }
+
+    public static void readFile4() throws FileNotFoundException {
+        readFile5();
     }
 
     public static void readFile5() throws FileNotFoundException {
