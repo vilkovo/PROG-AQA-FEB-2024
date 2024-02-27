@@ -1,52 +1,72 @@
 package org.prog.collections;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MapsDemo {
 
     public static void main(String[] args) {
-//        Map<String, String> stringMap = new HashMap<>();
-//        Map<String, String> stringMap2 = new HashMap<>();
-//        stringMap.put("key1", "value1");
-//        stringMap.put("key2", "value2");
-//        stringMap.put("key3", "oldValue3");
-//
-//        stringMap2.put("key3", "value3");
-//        stringMap2.put("key4", "value4");
-//
-//        stringMap.putAll(stringMap2);
-//        stringMap.remove("key3");
-//
-//        stringMap.replace("key5", "value5");
-//        System.out.println(stringMap.get("key5"));
-//
-//        System.out.println(stringMap.get("key1"));
-//        System.out.println(stringMap.get("key2"));
-//        System.out.println(stringMap.get("key3"));
-//        System.out.println(stringMap.get("key4"));
-//        stringMap.putIfAbsent("key1", "value3");
-//        System.out.println(stringMap.get("key1"));
-//        System.out.println(stringMap.getOrDefault("key1", "defaultValue"));
-//        System.out.println(stringMap.getOrDefault("key3", "defaultValue"));
+        HashMap<String, List<Car>> carOwners = new HashMap<>();
+        carOwners.put("John", new ArrayList<>());
+        carOwners.put("Jane", new ArrayList<>());
+        carOwners.put("Bob", new ArrayList<>());
+        carOwners.put("Alice", new ArrayList<>());
+        carOwners.put("Pete", new ArrayList<>());
+        carOwners.put("Kate", new ArrayList<>());
 
-        Car redCar = new Car();
-        Car blueCar = new Car();
-        redCar.color = "red";
-        blueCar.color = "blue";
+        registerCar("John", new Car(CarColors.BLACK), carOwners);
+        registerCar("John", new Car(CarColors.RED), carOwners);
+        registerCar("Jane", new Car(CarColors.GREEN), carOwners);
+        registerCar("Bob", new Car(CarColors.WHITE), carOwners);
+        registerCar("Bob", new Car(CarColors.WHITE), carOwners);
+        registerCar("Alice", new Car(CarColors.RED), carOwners);
+        registerCar("Pete", new Car(CarColors.BLACK), carOwners);
+        registerCar("Kate", new Car(CarColors.WHITE), carOwners);
 
-        Map<Car, String> carOwners = new HashMap<>();
-        carOwners.put(redCar, "Joe");
-        carOwners.put(blueCar, "Joe");
-        carOwners.put(new Car(), "Kate");
-        carOwners.put(new Car(), "Bill");
+        Set<String> ownersOfCarsWithSpecificColor = new HashSet<>();
+        Set<String> ownerNames = carOwners.keySet();
 
-        Map<String, List<Car>> ownedCars = new HashMap<>();
-        ownedCars.put("Joe", new ArrayList<>());
-        List<Car> joesCars = ownedCars.get("Joe");
-        joesCars.add(redCar);
+        for (String owner : ownerNames) {
+            List<Car> carsBelongingToThisOwner = carOwners.get(owner);
+            for (Car c : carsBelongingToThisOwner) {
+                if (c.carColor.equals(CarColors.WHITE)) {
+                    ownersOfCarsWithSpecificColor.add(owner);
+                }
+            }
+        }
 
-        ownedCars.get("Joe").add(new Car());
+        for (String o : ownersOfCarsWithSpecificColor) {
+            System.out.println(o);
+        }
+    }
 
+    private static void registerCar(String owner, Car car, HashMap<String, List<Car>> cars) {
+        List<Car> johnsCars = cars.get(owner);
+        johnsCars.add(car);
+    }
+
+    private static void printCarsByColor() {
+        HashMap<Car, String> ownedCars = new HashMap<>();
+        //TODO: print color of all cars owned by John and Alice
+        ownedCars.put(new Car(CarColors.BLACK), "John");
+        ownedCars.put(new Car(CarColors.WHITE), "John");
+        ownedCars.put(new Car(CarColors.GREEN), "Jane");
+        ownedCars.put(new Car(CarColors.RED), "Pete");
+        ownedCars.put(new Car(CarColors.BLACK), "Bob");
+        ownedCars.put(new Car(CarColors.WHITE), "Kate");
+        ownedCars.put(new Car(CarColors.GREEN), "Bill");
+        ownedCars.put(new Car(CarColors.RED), "Alice");
+        ownedCars.put(new Car(CarColors.GREEN), "Alice");
+
+        List<Car> carWithCertainColor = new ArrayList<>();
+        Set<Car> cars = ownedCars.keySet();
+        for (Car c : cars) {
+            if (c.carColor.equals(CarColors.BLACK)) {
+                carWithCertainColor.add(c);
+            }
+        }
+
+        for (Car c : carWithCertainColor) {
+            System.out.println(ownedCars.get(c));
+        }
     }
 }
