@@ -1,23 +1,22 @@
-package org.prog.web;
+package org.prog.testng;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
 
-//TODO: go to rozetka
-//TODO: search for any goods (iPhone 15)
-//TODO: print that goods name ( Мобильный телефон Apple iPhone 15 Pro Max 256GB Black Titanium (MU773RX/A) )
+public class MyTestNGTest2 extends ParentTest {
 
-public class SeleniumDemo {
-
-    public static void main(String[] args) {
+    @Test
+    public void mySeleniumCode() {
         WebDriver driver = new ChromeDriver();
         try {
             driver.get("https://google.com/");
