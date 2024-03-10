@@ -27,6 +27,7 @@ public class SeleniumHomeWork6 {
                     wait1.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.
                                     xpath("//div[@class='products-layout__item']"),
                             0));
+
             WebElement s = driver.findElement(By.xpath("//div[@class='products-layout__item'][1]/div/div/a"));
             System.out.println(s.getText());
 
