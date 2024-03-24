@@ -1,5 +1,6 @@
 package org.prog.testng;
 
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,5 +26,10 @@ public class AssertionDemo {
         String s1 = null;
         System.out.println(s1.length());
         Assert.assertEquals(s, "a");
+    }
+
+    @Step("I do smth")
+    private void smth(){
+
     }
 }

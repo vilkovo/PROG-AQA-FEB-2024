@@ -1,5 +1,6 @@
 package org.prog.testng;
 
+import io.qameta.allure.Severity;
 import org.openqa.selenium.WebDriver;
 import org.prog.pages.AlloUaPage;
 import org.prog.web.WebDriverFactory;

@@ -4,6 +4,8 @@ import org.testng.annotations.*;
 
 public class ParentTest {
 
+    protected String smth;
+
     @BeforeSuite
     public void setUp() {
         System.out.println("======================");
